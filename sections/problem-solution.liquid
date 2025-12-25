@@ -12,15 +12,14 @@
     <div class="problem-solution__grid page-width-content">
       {% if section.settings.problem_image != blank %}
         <div class="problem-solution__media problem-solution__media--problem animate-on-scroll">
-          {{
-            section.settings.problem_image
-            | image_url: width: 1200
-            | image_tag:
-              loading: 'lazy',
-              alt: section.settings.problem_heading | escape,
-              class: 'problem-solution__image',
-              sizes: '(min-width: 990px) 50vw, 100vw'
-          }}
+          {% assign problem_img = section.settings.problem_image | image_url: width: 1200 %}
+          <img 
+            src="{{ problem_img }}" 
+            loading="lazy"
+            alt="{{ section.settings.problem_heading | escape }}"
+            class="problem-solution__image"
+            sizes="(min-width: 990px) 50vw, 100vw"
+          />
         </div>
       {% endif %}
 
@@ -44,15 +43,14 @@
 
       {% if section.settings.solution_image != blank %}
         <div class="problem-solution__media problem-solution__media--solution animate-on-scroll" data-delay="100">
-          {{
-            section.settings.solution_image
-            | image_url: width: 1200
-            | image_tag:
-              loading: 'lazy',
-              alt: section.settings.solution_heading | escape,
-              class: 'problem-solution__image',
-              sizes: '(min-width: 990px) 50vw, 100vw'
-          }}
+          {% assign solution_img = section.settings.solution_image | image_url: width: 1200 %}
+          <img 
+            src="{{ solution_img }}" 
+            loading="lazy"
+            alt="{{ section.settings.solution_heading | escape }}"
+            class="problem-solution__image"
+            sizes="(min-width: 990px) 50vw, 100vw"
+          />
         </div>
       {% endif %}
 

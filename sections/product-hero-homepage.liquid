@@ -52,15 +52,14 @@
             {% endif %}
           </div>
         {% else %}
-          {{
-            product_image
-            | image_url: width: 1920
-            | image_tag:
-              loading: 'eager',
-              alt: featured_product.title | escape,
-              class: 'product-hero-homepage__image',
-              sizes: '100vw'
-          }}
+          {% assign hero_img = product_image | image_url: width: 1920 %}
+          <img 
+            src="{{ hero_img }}" 
+            loading="eager"
+            alt="{{ featured_product.title | escape }}"
+            class="product-hero-homepage__image"
+            sizes="100vw"
+          />
         {% endif %}
       </div>
     {% endif %}

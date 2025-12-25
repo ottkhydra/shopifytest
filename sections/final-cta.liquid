@@ -42,14 +42,13 @@
       </div>
     {% elsif cta_background_image != blank %}
       <div class="final-cta__image-wrapper">
-        {{
-          cta_background_image
-          | image_url: width: 1920
-          | image_tag:
-            loading: 'lazy',
-            alt: section.settings.heading | escape,
-            class: 'final-cta__background-image'
-        }}
+        {% assign cta_img = cta_background_image | image_url: width: 1920 %}
+        <img 
+          src="{{ cta_img }}" 
+          loading="lazy"
+          alt="{{ section.settings.heading | escape }}"
+          class="final-cta__background-image"
+        />
         <div class="final-cta__overlay"></div>
       </div>
     {% endif %}

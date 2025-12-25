@@ -44,14 +44,13 @@
               <div class="testimonials__author">
                 {% if block.settings.author_image != blank %}
                   <div class="testimonials__author-image">
-                    {{
-                      block.settings.author_image
-                      | image_url: width: 60
-                      | image_tag:
-                        loading: 'lazy',
-                        alt: block.settings.author | escape,
-                        class: 'testimonials__author-img'
-                    }}
+                    {% assign author_img = block.settings.author_image | image_url: width: 60 %}
+                    <img 
+                      src="{{ author_img }}" 
+                      loading="lazy"
+                      alt="{{ block.settings.author | escape }}"
+                      class="testimonials__author-img"
+                    />
                   </div>
                 {% endif %}
                 <div class="testimonials__author-info">

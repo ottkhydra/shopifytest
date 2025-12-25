@@ -23,15 +23,14 @@
         <div class="product-showcase__item animate-on-scroll" {{ block.shopify_attributes }} data-delay="{{ forloop.index | times: 100 }}">
           {% if block.settings.image != blank %}
             <div class="product-showcase__image-wrapper">
-              {{
-                block.settings.image
-                | image_url: width: 1200
-                | image_tag:
-                  loading: 'lazy',
-                  alt: block.settings.caption | escape,
-                  class: 'product-showcase__image',
-                  sizes: '(min-width: 990px) 50vw, 100vw'
-              }}
+              {% assign showcase_img = block.settings.image | image_url: width: 1200 %}
+              <img 
+                src="{{ showcase_img }}" 
+                loading="lazy"
+                alt="{{ block.settings.caption | escape }}"
+                class="product-showcase__image"
+                sizes="(min-width: 990px) 50vw, 100vw"
+              />
               {% if block.settings.feature_text != blank %}
                 <div class="product-showcase__feature-badge">
                   {{ block.settings.feature_text }}
