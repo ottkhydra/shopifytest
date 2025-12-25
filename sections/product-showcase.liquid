@@ -1,0 +1,302 @@
+
+{% comment %}
+  Product Showcase Section
+  Highlight product images with captions and features
+{% endcomment %}
+
+<section 
+  class="product-showcase section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="product-showcase__container page-width-content">
+    {% if section.settings.heading != blank %}
+      <div class="product-showcase__header animate-on-scroll">
+        <h2 class="product-showcase__title">{{ section.settings.heading }}</h2>
+        {% if section.settings.subheading != blank %}
+          <p class="product-showcase__subtitle">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="product-showcase__grid">
+      {% for block in section.blocks %}
+        <div class="product-showcase__item animate-on-scroll" {{ block.shopify_attributes }} data-delay="{{ forloop.index | times: 100 }}">
+          {% if block.settings.image != blank %}
+            <div class="product-showcase__image-wrapper">
+              {{
+                block.settings.image
+                | image_url: width: 1200
+                | image_tag:
+                  loading: 'lazy',
+                  alt: block.settings.caption | escape,
+                  class: 'product-showcase__image',
+                  sizes: '(min-width: 990px) 50vw, 100vw'
+              }}
+              {% if block.settings.feature_text != blank %}
+                <div class="product-showcase__feature-badge">
+                  {{ block.settings.feature_text }}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          {% if block.settings.caption != blank %}
+            <div class="product-showcase__caption">
+              <p>{{ block.settings.caption }}</p>
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .product-showcase {
+    padding: 6rem 0;
+  }
+
+  @media (min-width: 750px) {
+    .product-showcase {
+      padding: 8rem 0;
+    }
+  }
+
+  .product-showcase__container {
+    width: 100%;
+  }
+
+  .product-showcase__header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 750px) {
+    .product-showcase__header {
+      margin-bottom: 5rem;
+    }
+  }
+
+  .product-showcase__title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .product-showcase__subtitle {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  .product-showcase__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 750px) {
+    .product-showcase__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
+    }
+  }
+
+  .product-showcase__item {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .product-showcase__image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .product-showcase__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-out;
+  }
+
+  .product-showcase__item:hover .product-showcase__image {
+    transform: scale(1.02);
+  }
+
+  .product-showcase__feature-badge {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 0.625rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-foreground);
+  }
+
+  .product-showcase__caption {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    text-align: center;
+  }
+
+  .product-showcase__caption p {
+    margin: 0;
+  }
+
+  /* Animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .product-showcase__image {
+      transition: none;
+    }
+
+    .product-showcase__item:hover .product-showcase__image {
+      transform: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Product Showcase",
+  "tag": "section",
+  "class": "section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Designed for excellence"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Every detail matters"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page Width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full Width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    }
+  ],
+  "blocks": [
+    {
+      "type": "showcase",
+      "name": "Showcase Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "feature_text",
+          "label": "Feature Badge Text",
+          "info": "Optional feature highlight badge"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption",
+          "default": "Premium craftsmanship in every detail"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Showcase",
+      "blocks": [
+        {
+          "type": "showcase",
+          "settings": {
+            "feature_text": "Premium Materials",
+            "caption": "Crafted with attention to detail"
+          }
+        },
+        {
+          "type": "showcase",
+          "settings": {
+            "feature_text": "Thoughtful Design",
+            "caption": "Every element serves a purpose"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

@@ -7,17 +7,19 @@
         "hero_image": "",
         "hero_video": "",
         "show_video_overlay": false,
-        "subheading": "Premium Quality",
+        "subheading": "",
         "heading": "",
         "description": "",
-        "button_text": "Shop Now",
-        "show_trust_badges": true,
+        "button_text": "Buy Now",
+        "secondary_button_text": "Learn More",
+        "secondary_button_link": "#value-proposition",
+        "show_trust_badges": false,
         "trust_icon_1": "✓",
-        "trust_text_1": "Free Shipping",
+        "trust_text_1": "",
         "trust_icon_2": "✓",
-        "trust_text_2": "30-Day Returns",
+        "trust_text_2": "",
         "trust_icon_3": "✓",
-        "trust_text_3": "Secure Checkout",
+        "trust_text_3": "",
         "section_width": "page-width",
         "hero_height": "85vh",
         "hero_height_custom": 85,
@@ -26,130 +28,15 @@
         "padding-block-end": 0
       }
     },
-    "problem_solution": {
-      "type": "media-with-content",
-      "blocks": {
-        "media": {
-          "type": "_media-without-appearance",
-          "settings": {
-            "media_type_1": "image",
-            "image_1": "",
-            "aspect_ratio": "adapt",
-            "media_fit": "cover",
-            "media_radius": 12,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "content": {
-          "type": "_content-without-appearance",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 24,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "padding-block-start": 24,
-            "padding-block-end": 24,
-            "padding-inline-start": 24,
-            "padding-inline-end": 24
-          },
-          "blocks": {
-            "heading": {
-              "type": "text",
-              "settings": {
-                "text": "<h2>The Problem</h2>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h3",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "description": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Every day, countless people struggle with discomfort, pain, or dissatisfaction. Our product was created to solve this problem once and for all.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading",
-            "description"
-          ]
-        }
-      },
-      "block_order": [
-        "media",
-        "content"
-      ],
-      "settings": {
-        "media_position": "right",
-        "media_width": "medium",
-        "media_height": "auto",
-        "section_width": "page-width",
-        "extend_media": false,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 64,
-        "padding-block-end": 64
-      }
-    },
-    "product_benefits": {
-      "type": "product-benefits",
+    "value_proposition": {
+      "type": "value-proposition",
       "blocks": {
         "benefit_1": {
           "type": "benefit",
           "settings": {
             "icon": "✨",
             "title": "Premium Quality",
-            "description": "Crafted with the finest materials for lasting comfort and durability."
+            "description": "Thoughtfully designed with premium materials."
           }
         },
         "benefit_2": {
@@ -157,7 +44,7 @@
           "settings": {
             "icon": "🚀",
             "title": "Fast Shipping",
-            "description": "Quick delivery right to your doorstep. Free shipping on orders over $50."
+            "description": "Delivered quickly and securely to your door."
           }
         },
         "benefit_3": {
@@ -165,199 +52,132 @@
           "settings": {
             "icon": "💯",
             "title": "Satisfaction Guaranteed",
-            "description": "30-day money-back guarantee. We stand behind our products."
+            "description": "We stand behind our products completely."
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🔒",
+            "title": "Secure Checkout",
+            "description": "Your information is always protected."
           }
         }
       },
       "block_order": [
         "benefit_1",
         "benefit_2",
-        "benefit_3"
+        "benefit_3",
+        "benefit_4"
       ],
       "settings": {
-        "heading": "Why Choose Our Product",
-        "subheading": "Premium features designed for your comfort",
+        "heading": "Why choose us",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
-        "padding-block-start": 64,
-        "padding-block-end": 64
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "problem_solution": {
+      "type": "problem-solution",
+      "settings": {
+        "problem_label": "The Challenge",
+        "problem_heading": "You deserve better",
+        "problem_text": "<p>Every day, you face challenges that hold you back. The frustration of dealing with subpar solutions. The time wasted on products that don't deliver. The feeling that there must be a better way.</p>",
+        "problem_image": "",
+        "solution_label": "The Solution",
+        "solution_heading": "Meet the difference",
+        "solution_text": "<p>Our product is designed to solve your problem with thoughtful engineering and premium materials. Experience the difference that quality and attention to detail make.</p>",
+        "solution_image": "",
+        "product": "",
+        "cta_text": "Learn More",
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 96,
+        "padding-block-end": 96
       }
     },
     "product_showcase": {
-      "type": "media-with-content",
-      "blocks": {
-        "media": {
-          "type": "_media-without-appearance",
-          "settings": {
-            "media_type_1": "image",
-            "image_1": "",
-            "aspect_ratio": "adapt",
-            "media_fit": "cover",
-            "media_radius": 12,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "content": {
-          "type": "_content-without-appearance",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 24,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "padding-block-start": 24,
-            "padding-block-end": 24,
-            "padding-inline-start": 24,
-            "padding-inline-end": 24
-          },
-          "blocks": {
-            "heading": {
-              "type": "text",
-              "settings": {
-                "text": "<h2>Experience the Difference</h2>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h3",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "description": {
-              "type": "text",
-              "settings": {
-                "text": "<p>See how our product transforms your everyday experience. Join thousands of satisfied customers.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading",
-            "description"
-          ]
-        }
-      },
-      "block_order": [
-        "media",
-        "content"
-      ],
+      "type": "product-showcase",
+      "blocks": {},
       "settings": {
-        "media_position": "left",
-        "media_width": "medium",
-        "media_height": "auto",
+        "heading": "Designed for excellence",
+        "subheading": "Every detail matters",
         "section_width": "page-width",
-        "extend_media": false,
         "color_scheme": "scheme-1",
-        "padding-block-start": 64,
-        "padding-block-end": 64
+        "padding-block-start": 96,
+        "padding-block-end": 96
       }
     },
-    "testimonials": {
+    "social_proof": {
       "type": "testimonials",
       "blocks": {},
       "settings": {
-        "heading": "What Our Customers Say",
-        "subheading": "Join thousands of satisfied customers",
+        "heading": "Trusted by thousands",
+        "subheading": "Real feedback from real customers",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
-        "padding-block-start": 64,
-        "padding-block-end": 64
+        "padding-block-start": 96,
+        "padding-block-end": 96
       }
     },
-    "trust_badges": {
-      "type": "trust-badges",
+    "trust_guarantees": {
+      "type": "trust-guarantees",
       "blocks": {
-        "badge_1": {
-          "type": "badge",
-          "settings": {
-            "icon": "🔒",
-            "title": "Secure Checkout",
-            "text": "256-bit SSL encryption"
-          }
-        },
-        "badge_2": {
-          "type": "badge",
+        "guarantee_1": {
+          "type": "guarantee",
           "settings": {
             "icon": "🚚",
-            "title": "Free Shipping",
-            "text": "On orders over $50"
+            "title": "Fast Shipping",
+            "description": "Free shipping on orders over $50"
           }
         },
-        "badge_3": {
-          "type": "badge",
+        "guarantee_2": {
+          "type": "guarantee",
           "settings": {
             "icon": "↩️",
             "title": "Easy Returns",
-            "text": "30-day money-back guarantee"
+            "description": "30-day money-back guarantee"
+          }
+        },
+        "guarantee_3": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "💬",
+            "title": "Support",
+            "description": "We're here to help when you need us"
+          }
+        },
+        "guarantee_4": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "🔒",
+            "title": "Secure Checkout",
+            "description": "Your information is always protected"
           }
         }
       },
       "block_order": [
-        "badge_1",
-        "badge_2",
-        "badge_3"
+        "guarantee_1",
+        "guarantee_2",
+        "guarantee_3",
+        "guarantee_4"
       ],
       "settings": {
         "section_width": "page-width",
         "color_scheme": "scheme-1",
-        "padding-block-start": 32,
-        "padding-block-end": 32
+        "padding-block-start": 64,
+        "padding-block-end": 64
       }
     },
     "final_cta": {
       "type": "final-cta",
       "settings": {
         "product": "",
-        "subheading": "Limited Time Offer",
-        "heading": "Ready to Experience the Difference?",
-        "description": "<p>Join thousands of satisfied customers who have transformed their lives with our premium product.</p>",
-        "button_text": "Get Yours Now",
+        "subheading": "",
+        "heading": "Experience the difference",
+        "description": "<p>Join thousands who have made the switch to premium quality.</p>",
+        "button_text": "Buy Now",
         "secondary_button_text": "",
         "secondary_button_link": "",
         "background_image": "",
@@ -374,11 +194,11 @@
   },
   "order": [
     "product_hero",
+    "value_proposition",
     "problem_solution",
-    "product_benefits",
     "product_showcase",
-    "testimonials",
-    "trust_badges",
+    "social_proof",
+    "trust_guarantees",
     "final_cta"
   ]
 }

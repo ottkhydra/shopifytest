@@ -1,0 +1,349 @@
+
+{% comment %}
+  Problem → Solution Section
+  Emotional and rational framing of customer problem and product solution
+{% endcomment %}
+
+<section 
+  class="problem-solution section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="problem-solution__container">
+    <div class="problem-solution__grid page-width-content">
+      {% if section.settings.problem_image != blank %}
+        <div class="problem-solution__media problem-solution__media--problem animate-on-scroll">
+          {{
+            section.settings.problem_image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'lazy',
+              alt: section.settings.problem_heading | escape,
+              class: 'problem-solution__image',
+              sizes: '(min-width: 990px) 50vw, 100vw'
+          }}
+        </div>
+      {% endif %}
+
+      <div class="problem-solution__content problem-solution__content--problem animate-on-scroll" data-delay="100">
+        <div class="problem-solution__content-inner">
+          {% if section.settings.problem_label != blank %}
+            <p class="problem-solution__label problem-solution__label--problem">{{ section.settings.problem_label }}</p>
+          {% endif %}
+
+          {% if section.settings.problem_heading != blank %}
+            <h2 class="problem-solution__heading problem-solution__heading--problem">{{ section.settings.problem_heading }}</h2>
+          {% endif %}
+
+          {% if section.settings.problem_text != blank %}
+            <div class="problem-solution__text rte">
+              {{ section.settings.problem_text }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if section.settings.solution_image != blank %}
+        <div class="problem-solution__media problem-solution__media--solution animate-on-scroll" data-delay="100">
+          {{
+            section.settings.solution_image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'lazy',
+              alt: section.settings.solution_heading | escape,
+              class: 'problem-solution__image',
+              sizes: '(min-width: 990px) 50vw, 100vw'
+          }}
+        </div>
+      {% endif %}
+
+      <div class="problem-solution__content problem-solution__content--solution animate-on-scroll" data-delay="200">
+        <div class="problem-solution__content-inner">
+          {% if section.settings.solution_label != blank %}
+            <p class="problem-solution__label problem-solution__label--solution">{{ section.settings.solution_label }}</p>
+          {% endif %}
+
+          {% if section.settings.solution_heading != blank %}
+            <h2 class="problem-solution__heading problem-solution__heading--solution">{{ section.settings.solution_heading }}</h2>
+          {% endif %}
+
+          {% if section.settings.solution_text != blank %}
+            <div class="problem-solution__text rte">
+              {{ section.settings.solution_text }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.product != blank %}
+            <div class="problem-solution__cta">
+              <a 
+                href="{{ section.settings.product.url }}" 
+                class="button button--primary"
+              >
+                {{ section.settings.cta_text | default: 'Learn More' }}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .problem-solution {
+    padding: 6rem 0;
+  }
+
+  @media (min-width: 750px) {
+    .problem-solution {
+      padding: 8rem 0;
+    }
+  }
+
+  .problem-solution__container {
+    width: 100%;
+  }
+
+  .problem-solution__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  @media (min-width: 990px) {
+    .problem-solution__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6rem;
+      align-items: center;
+    }
+  }
+
+  .problem-solution__media {
+    width: 100%;
+    order: 1;
+  }
+
+  @media (min-width: 990px) {
+    .problem-solution__media--problem {
+      order: 1;
+    }
+    
+    .problem-solution__content--problem {
+      order: 2;
+    }
+
+    .problem-solution__media--solution {
+      order: 4;
+    }
+    
+    .problem-solution__content--solution {
+      order: 3;
+    }
+  }
+
+  .problem-solution__image {
+    width: 100%;
+    border-radius: 12px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .problem-solution__content {
+    width: 100%;
+    order: 2;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (min-width: 990px) {
+    .problem-solution__content {
+      order: auto;
+    }
+  }
+
+  .problem-solution__content-inner {
+    width: 100%;
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .problem-solution__label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    margin: 0;
+    opacity: 0.6;
+  }
+
+  .problem-solution__heading {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .problem-solution__text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+
+  .problem-solution__cta {
+    margin-top: 0.5rem;
+  }
+
+  .problem-solution__cta .button {
+    min-width: 160px;
+  }
+
+  /* Animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Problem → Solution",
+  "tag": "section",
+  "class": "section-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Problem Section"
+    },
+    {
+      "type": "text",
+      "id": "problem_label",
+      "label": "Problem Label",
+      "default": "The Challenge"
+    },
+    {
+      "type": "text",
+      "id": "problem_heading",
+      "label": "Problem Heading",
+      "default": "You deserve better"
+    },
+    {
+      "type": "richtext",
+      "id": "problem_text",
+      "label": "Problem Text",
+      "default": "<p>Every day, you face challenges that hold you back. The frustration of dealing with subpar solutions. The time wasted on products that don't deliver. The feeling that there must be a better way.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "problem_image",
+      "label": "Problem Image"
+    },
+    {
+      "type": "header",
+      "content": "Solution Section"
+    },
+    {
+      "type": "text",
+      "id": "solution_label",
+      "label": "Solution Label",
+      "default": "The Solution"
+    },
+    {
+      "type": "text",
+      "id": "solution_heading",
+      "label": "Solution Heading",
+      "default": "Meet the difference"
+    },
+    {
+      "type": "richtext",
+      "id": "solution_text",
+      "label": "Solution Text",
+      "default": "<p>Our product is designed to solve your problem with thoughtful engineering and premium materials. Experience the difference that quality and attention to detail make.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "solution_image",
+      "label": "Solution Image"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Product link for CTA button"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page Width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full Width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    }
+  ],
+  "presets": [
+    {
+      "name": "Problem → Solution"
+    }
+  ]
+}
+{% endschema %}
+

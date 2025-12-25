@@ -71,7 +71,13 @@
 
 {% stylesheet %}
   .testimonials {
-    padding: 4rem 0;
+    padding: 6rem 0;
+  }
+
+  @media (min-width: 750px) {
+    .testimonials {
+      padding: 8rem 0;
+    }
   }
 
   .testimonials__container {
@@ -84,14 +90,17 @@
   }
 
   .testimonials__title {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 4vw, 2.75rem);
     margin-bottom: 1rem;
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
   }
 
   .testimonials__subtitle {
     font-size: 1.125rem;
-    opacity: 0.8;
+    line-height: 1.5;
+    opacity: 0.7;
     max-width: 600px;
     margin: 0 auto;
   }
@@ -116,19 +125,18 @@
   }
 
   .testimonials__item {
-    padding: 2rem;
+    padding: 2.5rem;
     background: var(--color-background);
-    border-radius: var(--style-border-radius, 12px);
-    border: 1px solid var(--color-border, rgba(0, 0, 0, 0.1));
+    border-radius: 12px;
+    border: 1px solid var(--color-border, rgba(0, 0, 0, 0.08));
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.2s ease-out, transform 0.2s ease-out;
   }
 
   .testimonials__item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-border, rgba(0, 0, 0, 0.15));
   }
 
   .testimonials__rating {
@@ -145,9 +153,9 @@
   .testimonials__text {
     font-size: 1.125rem;
     line-height: 1.6;
-    font-style: italic;
     margin: 0;
     flex-grow: 1;
+    opacity: 0.9;
   }
 
   .testimonials__author {

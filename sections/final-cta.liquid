@@ -82,7 +82,7 @@
             class="button button--primary final-cta__button final-cta__button--primary"
             aria-label="Shop {{ featured_product.title | escape }}"
           >
-            {{ section.settings.button_text | default: 'Get Yours Now' }}
+            {{ section.settings.button_text | default: 'Buy Now' }}
           </a>
         {% endif %}
 
@@ -171,10 +171,10 @@
   }
 
   .final-cta__subheading {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    opacity: 0.9;
+    letter-spacing: 0.08em;
+    opacity: 0.6;
     margin-bottom: 1rem;
     font-weight: 500;
   }
@@ -187,10 +187,13 @@
   }
 
   .final-cta__description {
-    font-size: 1.125rem;
-    line-height: 1.6;
+    font-size: 1.25rem;
+    line-height: 1.5;
     margin-bottom: 2rem;
-    opacity: 0.95;
+    opacity: 0.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .final-cta__price {
