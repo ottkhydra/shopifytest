@@ -109,7 +109,7 @@
         "padding-block-end": 96
       }
     },
-    "social_proof": {
+    "testimonials": {
       "type": "testimonials",
       "blocks": {},
       "settings": {
@@ -119,55 +119,6 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 96,
         "padding-block-end": 96
-      }
-    },
-    "trust_guarantees": {
-      "type": "trust-guarantees",
-      "blocks": {
-        "guarantee_1": {
-          "type": "guarantee",
-          "settings": {
-            "icon": "🚚",
-            "title": "Fast Shipping",
-            "description": "Free shipping on orders over $50"
-          }
-        },
-        "guarantee_2": {
-          "type": "guarantee",
-          "settings": {
-            "icon": "↩️",
-            "title": "Easy Returns",
-            "description": "30-day money-back guarantee"
-          }
-        },
-        "guarantee_3": {
-          "type": "guarantee",
-          "settings": {
-            "icon": "💬",
-            "title": "Support",
-            "description": "We're here to help when you need us"
-          }
-        },
-        "guarantee_4": {
-          "type": "guarantee",
-          "settings": {
-            "icon": "🔒",
-            "title": "Secure Checkout",
-            "description": "Your information is always protected"
-          }
-        }
-      },
-      "block_order": [
-        "guarantee_1",
-        "guarantee_2",
-        "guarantee_3",
-        "guarantee_4"
-      ],
-      "settings": {
-        "section_width": "page-width",
-        "color_scheme": "scheme-1",
-        "padding-block-start": 64,
-        "padding-block-end": 64
       }
     },
     "final_cta": {
@@ -197,8 +148,7 @@
     "value_proposition",
     "problem_solution",
     "product_showcase",
-    "social_proof",
-    "trust_guarantees",
+    "testimonials",
     "final_cta"
   ]
 }

@@ -4,8 +4,7 @@
   Placeholder for customer reviews - can be extended with app integration
 {% endcomment %}
 
-{% if section.blocks.size > 0 %}
-  <section 
+<section 
     class="testimonials section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
     style="{% render 'spacing-style', settings: section.settings %}"
   >
@@ -66,7 +65,6 @@
       </div>
     </div>
   </section>
-{% endif %}
 
 {% stylesheet %}
   .testimonials {
