@@ -1,0 +1,72 @@
+
+{% comment %}
+  Product Trust Elements Snippet
+  Displays trust badges below the add to cart button
+{% endcomment %}
+
+<div class="product-trust-elements">
+  {% if section.settings.trust_shipping_text != blank %}
+    <div class="product-trust-elements__item">
+      <span class="product-trust-elements__icon">🚚</span>
+      <span class="product-trust-elements__text">{{ section.settings.trust_shipping_text }}</span>
+    </div>
+  {% endif %}
+
+  {% if section.settings.trust_guarantee_text != blank %}
+    <div class="product-trust-elements__item">
+      <span class="product-trust-elements__icon">↩️</span>
+      <span class="product-trust-elements__text">{{ section.settings.trust_guarantee_text }}</span>
+    </div>
+  {% endif %}
+
+  {% if section.settings.trust_secure_text != blank %}
+    <div class="product-trust-elements__item">
+      <span class="product-trust-elements__icon">🔒</span>
+      <span class="product-trust-elements__text">{{ section.settings.trust_secure_text }}</span>
+    </div>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .product-trust-elements {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, rgba(0, 0, 0, 0.1));
+  }
+
+  .product-trust-elements__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    color: var(--color-foreground);
+    opacity: 0.85;
+  }
+
+  .product-trust-elements__icon {
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .product-trust-elements__text {
+    flex: 1;
+  }
+
+  @media (max-width: 749px) {
+    .product-trust-elements {
+      gap: 0.625rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+    }
+
+    .product-trust-elements__item {
+      font-size: 0.875rem;
+    }
+  }
+{% endstylesheet %}
+

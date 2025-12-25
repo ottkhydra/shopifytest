@@ -1,0 +1,230 @@
+
+{% comment %}
+  Trust Badges Section
+  Display security, shipping, and guarantee badges to build trust
+{% endcomment %}
+
+{% if section.blocks.size > 0 %}
+  <section 
+    class="trust-badges section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+    style="{% render 'spacing-style', settings: section.settings %}"
+  >
+    <div class="trust-badges__container page-width-content">
+      <div class="trust-badges__grid">
+        {% for block in section.blocks %}
+          <div class="trust-badges__item" {{ block.shopify_attributes }}>
+            {% if block.settings.icon != blank %}
+              <div class="trust-badges__icon">
+                {% if block.settings.icon contains '.svg' %}
+                  <img 
+                    src="{{ block.settings.icon | asset_url }}" 
+                    alt="{{ block.settings.text | escape }}"
+                    loading="lazy"
+                  >
+                {% else %}
+                  {{ block.settings.icon }}
+                {% endif %}
+              </div>
+            {% endif %}
+
+            {% if block.settings.text != blank %}
+              <div class="trust-badges__text">
+                {% if block.settings.title != blank %}
+                  <strong class="trust-badges__title">{{ block.settings.title }}</strong>
+                {% endif %}
+                <span>{{ block.settings.text }}</span>
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% stylesheet %}
+  .trust-badges {
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-border, rgba(0, 0, 0, 0.1));
+    border-bottom: 1px solid var(--color-border, rgba(0, 0, 0, 0.1));
+  }
+
+  .trust-badges__container {
+    width: 100%;
+  }
+
+  .trust-badges__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+  }
+
+  @media (max-width: 749px) {
+    .trust-badges__grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .trust-badges__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  @media (max-width: 749px) {
+    .trust-badges__item {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  .trust-badges__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  .trust-badges__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .trust-badges__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+
+  .trust-badges__title {
+    display: block;
+    font-weight: 600;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Trust Badges",
+  "tag": "section",
+  "class": "section-wrapper",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page Width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full Width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Trust Badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon",
+          "info": "Emoji or icon name, or upload SVG via theme files",
+          "default": "🔒"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Secure Checkout"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "256-bit SSL encryption"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust Badges",
+      "blocks": [
+        {
+          "type": "badge",
+          "settings": {
+            "icon": "🔒",
+            "title": "Secure Checkout",
+            "text": "256-bit SSL encryption"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon": "🚚",
+            "title": "Free Shipping",
+            "text": "On orders over $50"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon": "↩️",
+            "title": "Easy Returns",
+            "text": "30-day money-back guarantee"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
